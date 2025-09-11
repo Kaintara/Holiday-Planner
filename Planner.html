@@ -9,79 +9,83 @@
     <body>
         <main>
             <h1>Plan Your Ideal Holiday!</h1>
-            <p>Below are choices which will help determine where the best desistantion for you is!</p>
+            <p id="Change">Below are choices which will help determine where the best desistantion for you is!</p>
         </main>
-        <div>
-            <label><p>Country</p><input type="text"></label>
-            <label><p>City</p><input type=text></label>
-        </div>
-        <div>
-            <h2>Budget</h2>
-            <label><input type="radio" name="Budget" value="1" title=">100">£</label>
-            <label><input type="radio" name="Budget" value="2" title="Budget Friendly">££</label>
-            <label><input type="radio" name="Budget" value="3" title="Average Costs">£££</label>
-            <label><input type="radio" name="Budget" value="4" title="Above Average">££££</label>
-            <label><input type="radio" name="Budget" value="5" title="No limit">£££££</label>
-        </div>
-        <div>
-            <h2>Urban or Natural</h2>
-            <label for="slider1">
-                <input type="range" id="slider1" min="1" max="5" step="1">
-            </label>
-            <span id="sliderValue1"><p>Balanced</p></span>
-        </div>
-        <div>
-            <h2>Hot or Cold</h2>
-            <label for="slider2">
-                <input type="range" id="slider2" min="1" max="5" step="1">
-            </label>
-            <span id="sliderValue2"><p>Cool</p></span>
-        </div>
-        <div>
-            <h2>Local or Far away</h2>
-            <label for="slider3">
-                <input type="range" id="slider3" min="1" max="5" step="1">
-            </label>
-            <span id="sliderValue3"><p>Same continent</p></span>
-        </div>
-        <div>
-            <h2>Safety</h2>
-            <label for="slider4">
-                <input type="range" id="slider4" min="1" max="5" step="1">
-            </label>
-            <span id="sliderValue4"><p>Mid Priority</p></span>
-        </div>
-        <div>
-            <h2>Relaxation or Adventure</h2>
-            <label for="slider5">
-                <input type="range" id="slider5" min="1" max="5" step="1">
-            </label>
-            <span id="sliderValue5"><p>Balanced</p></span>
-        </div>
-        <div>
-            <h2>Food Quality</h2>
-            <label for="slider6">
-                <input type="range" id="slider6" min="1" max="5" step="1">
-            </label>
-            <span id="sliderValue6"><p>Mid Priority</p></span>
-        </div>
-        <div>
-            <h2>Group</h2>
-            <label><input type="radio" name="Group" value="1" >Solo</label>
-            <label><input type="radio" name="Group" value="2" >Family-Friendly</label>
-            <label><input type="radio" name="Group" value="3" >Adult Famliy</label>
-            <label><input type="radio" name="Group" value="4" >Friends</label>
-        </div>
-        <div>
-            <h2>Duration</h2>
-            <label for="slider7">
-                <input type="range" id="slider7" min="1" max="5" step="1">
-            </label>
-            <span id="sliderValue7"><p>One Week</p></span>
-        </div>
-        <script src="slider.js"></script>
-        <div>
-            <label><p title="Add any thing else you expect in your dream holiday.">Addtional Notes</p><input type="text"></label>
-        </div>
+        <form class="Disappear" id="Holiday">
+            <div>
+                <label><p>Country</p><input id="cont" type="text"></label>
+                <label><p>City</p><input id ="city" type=text></label>
+            </div>
+            <div>
+                <h2>Budget</h2>
+                <label><input type="radio" name="Budget" value="1" title=">100">£</label>
+                <label><input type="radio" name="Budget" value="2" title="Budget Friendly">££</label>
+                <label><input type="radio" name="Budget" value="3" title="Average Costs">£££</label>
+                <label><input type="radio" name="Budget" value="4" title="Above Average">££££</label>
+                <label><input type="radio" name="Budget" value="5" title="No limit">£££££</label>
+            </div>
+            <div>
+                <h2>Urban or Natural</h2>
+                <label for="slider1">
+                    <input type="range" id="slider1" min="1" max="5" step="1">
+                </label>
+                <span id="sliderValue1"><p>Balanced</p></span>
+            </div>
+            <div>
+                <h2>Hot or Cold</h2>
+                <label for="slider2">
+                    <input type="range" id="slider2" min="1" max="5" step="1">
+                </label>
+                <span id="sliderValue2"><p>Cool</p></span>
+            </div>
+            <div >
+                <h2>Local or Far away</h2>
+                <label for="slider3">
+                    <input type="range" id="slider3" min="1" max="5" step="1">
+                </label>
+                <span id="sliderValue3"><p>Same continent</p></span>
+            </div>
+            <div>
+                <h2>Safety</h2>
+                <label for="slider4">
+                    <input type="range" id="slider4" min="1" max="5" step="1">
+                </label>
+                <span id="sliderValue4"><p>Mid Priority</p></span>
+            </div>
+            <div>
+                <h2>Relaxation or Adventure</h2>
+                <label for="slider5">
+                    <input type="range" id="slider5" min="1" max="5" step="1">
+                </label>
+                <span id="sliderValue5"><p>Balanced</p></span>
+            </div>
+            <div>
+                <h2>Food Quality</h2>
+                <label for="slider6">
+                    <input type="range" id="slider6" min="1" max="5" step="1">
+                </label>
+                <span id="sliderValue6"><p>Mid Priority</p></span>
+            </div>
+            <div>
+                <h2>Group</h2>
+                <label><input type="radio" name="Group" value="1" >Solo</label>
+                <label><input type="radio" name="Group" value="2" >Family-Friendly</label>
+                <label><input type="radio" name="Group" value="3" >Adult Famliy</label>
+                <label><input type="radio" name="Group" value="4" >Friends</label>
+            </div>
+            <div>
+                <h2>Duration</h2>
+                <label for="slider7">
+                    <input type="range" id="slider7" min="1" max="5" step="1">
+                </label>
+                <span id="sliderValue7"><p>One Week</p></span>
+            </div>
+            <script src="slider.js"></script>
+            <div>
+                <label><p id="add" title="Add any thing else you expect in your dream holiday.">Addtional Notes</p><input type="text"></label>
+            </div>
+            <button type="submit">Submit</button>
+            <script src="Submit.js"></script>
+        </form>
     </body>
 </html>
