@@ -12,12 +12,24 @@
             <p>Below are choices which will help determine where the best desistantion for you is!</p>
         </main>
         <div>
+            <label><p>Country</p><input type="text"></label>
+            <label><p>City</p><input type=text></label>
+        </div>
+        <div>
             <h2>Budget</h2>
             <label><input type="radio" name="Budget" value="1" title=">100">£</label>
             <label><input type="radio" name="Budget" value="2" title="Budget Friendly">££</label>
             <label><input type="radio" name="Budget" value="3" title="Average Costs">£££</label>
-            <label><input type="radio" name="Budget" value="4" title="">££££</label>
+            <label><input type="radio" name="Budget" value="4" title="Above Average">££££</label>
             <label><input type="radio" name="Budget" value="5" title="No limit">£££££</label>
         </div>
+        <div>
+            <h2>Urban or Natural</h2>
+            <label for="slider">
+                <input type="range" id="slider" min="1" max="5" step="1">
+            </label>
+            <span id="sliderValue"><p>Balanced</p></span>
+        </div>
+        <script src="planner.js"></script>
     </body>
 </html>
