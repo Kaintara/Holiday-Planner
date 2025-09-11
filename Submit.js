@@ -1,9 +1,13 @@
+const container2 = document.querySelector('.Appear')
+container2.style.display = 'inline'
 const form = document.getElementById('Holiday')
+
 
 form.addEventListener('submit', function(event){
     event.preventDefault();
     const container = document.querySelector('.Disappear')
     container.style.display = 'none';
+    container2.style.display = 'inline';
     const NewText = document.getElementById('Change')
     NewText.textContent = "Below should be your Top 3 trip destinantions! It takes some time to generate so hang tight."
     const country = document.getElementById('cont')
@@ -51,12 +55,89 @@ form.addEventListener('submit', function(event){
     fetch ('https://ai.hackclub.com/chat/completions', {
         method: 'POST',
         headers: { "Content-Type": 'application/json'},
-        body: JSON.stringify({"messages":[{"role": "user", "content": "Tell me a joke Return ONLY a JSON object with keys 'joke' and 'category'. Do NOT include any extra text."}]}),
+        body: JSON.stringify({"messages":[{"role": "user", "content": `YOU ARE A TRAVEL RECOMMENDATION AI. BASED ON THE USER'S INPUTS, OUTPUT THREE COUNTRIES RANKED FROM BEST TO LAST FOR THEIR NEXT TRIP. CONSIDER ALL 11 FACTORS IN YOUR DECISION. 
+
+USER SELECTED PREFERENCES:
+- USER COUNTRY AND CITY: ${UserInput.User_City}, ${UserInput.User_Country}
+- BUDGET: ${UserInput.Budget}
+- AREA PREFERENCE: ${UserInput.Area}
+- WEATHER PREFERENCE: ${UserInput.Weather}
+- DISTANCE FROM HOME: ${UserInput.Distance}
+- TYPE OF HOLIDAY: ${UserInput.Type}
+- SAFETY PRIORITY: ${UserInput.Safety}
+- FOOD IMPORTANCE: ${UserInput.Food}
+- DURATION OF STAY: ${UserInput.Days}
+- ADDTIONAL NOTES: ${UserInput.AddNotes}
+
+ALL AVAILABLE OPTIONS FOR COMPARISON:
+- BUDGET: LESS THAN 100, BUDGET FRIENDLY, AVERAGE COSTS, ABOVE AVERAGE
+- AREA: INNER CITY, GREEN URBAN, BALANCED, NATURE-FOCUSED TOWNS, REMOTE NATURE
+- WEATHER: VERY HOT, MILD HEAT, COOL, CHILLY, FREEZING
+- DISTANCE: LOCAL, BORDERING COUNTRIES, SAME CONTINENT, ADJACENT CONTINENTS, ANYWHERE
+- HOLIDAY TYPE: COMPLETE RELAXATION, MOSTLY RELAXING, BALANCED, MOSTLY ADVENTURE, COMPLETE ADVENTURE
+- SAFETY: TOP PRIORITY, 4, MID PRIORITY, 2, LOWEST PRIORITY
+- FOOD IMPORTANCE: TOP PRIORITY, 4, MID PRIORITY, 2, LOWEST PRIORITY
+- DURATION: ONE DAY, COUPLE OF DAYS, ONE WEEK, COUPLE OF WEEKS, MONTH+
+
+NOTE: IF A USER'S OPTION IS LEFT BLANK THEN USE THE DEFAULT WHICH IS THE MIDDLE OPTION FOR EXAMPLE DURATION DEFAULT IS ONE WEEK
+
+REQUIREMENTS:
+1. OUTPUT MUST BE STRICTLY VALID JSON WITH THE FOLLOWING FORMAT:
+
+{
+  "CountryCity1": {
+    "Name": "NAME OF COUNTRY AND CITY",
+    "Reason1": "REASON FOR RANKING",
+    "Reason2": "REASON FOR RANKING",
+    "Reason3": "REASON FOR RANKING"
+  },
+  "CountryCity2": {
+    "Name": "NAME OF COUNTRY AND CITY",
+    "Reason1": "...",
+    "Reason2": "...",
+    "Reason3": "..."
+  },
+  "CountryCity3": {
+    "Name": "NAME OF COUNTRY AND CITY",
+    "Reason1": "...",
+    "Reason2": "...",
+    "Reason3": "..."
+  }
+}
+
+2. DO NOT INCLUDE ANY EXTRA TEXT OUTSIDE THE JSON.  
+3. BASE YOUR RANKING SOLELY ON THE 10 FACTORS LISTED ABOVE.
+4. PUT HEAVY WEIGHT ON YOUR DECISION BASED OFF OF THE ADDTIONAL NOTES IF PRESENT.  
+5. GIVE UNIQUE AND SPECIFIC REASONS FOR EACH COUNTRY IN THE JSON.  
+6. ENSURE THE JSON IS PROPERLY FORMATTED AND PARSABLE — DO NOT INCLUDE MARKDOWN, EXPLANATIONS, OR NOTES.
+
+EXAMPLE OF VALID OUTPUT:
+{
+  "CountryCity1": {
+    "Name": "Osaka, Japan",
+    "Reason1": "PERFECT BALANCE OF CITY AND NATURE AREAS",
+    "Reason2": "MATCHES USER'S FOOD AND SAFETY PREFERENCES",
+    "Reason3": "IDEAL WEATHER AND TRIP DURATION FOR USER"
+  },
+  "CountryCity2": {
+    "Name": "ROME, ITALY",
+    "Reason1": "...",
+    "Reason2": "...",
+    "Reason3": "..."
+  },
+  "CountryCity3": {
+    "Name": "TORONTO, CANADA",
+    "Reason1": "...",
+    "Reason2": "...",
+    "Reason3": "..."
+  }
+}`}]}),
     }).then(result => result.json())
     .then(eventsResponse =>{
         const events = eventsResponse.choices[0].message.content
-
-        console.log(events)
+        const important = events.split('</think>')[1]?.trim()
+        console.log(important)
+        TopThree = JSON.parse(important)
     })
     
 })
