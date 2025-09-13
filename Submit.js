@@ -1,7 +1,7 @@
 const container2 = document.querySelector('.Appear')
 container2.style.display = 'inline'
 const form = document.getElementById('Holiday')
-
+const but = document.getElementById('save')
 
 form.addEventListener('submit', function(event){
     event.preventDefault();
@@ -50,8 +50,6 @@ form.addEventListener('submit', function(event){
         AddNotes: Notes.textContent,
     }
 
-  console.log(UserInput.Budget)
-
     fetch ('https://ai.hackclub.com/chat/completions', {
         method: 'POST',
         headers: { "Content-Type": 'application/json'},
@@ -80,6 +78,7 @@ ALL AVAILABLE OPTIONS FOR COMPARISON:
 - DURATION: ONE DAY, COUPLE OF DAYS, ONE WEEK, COUPLE OF WEEKS, MONTH+
 
 NOTE: IF A USER'S OPTION IS LEFT BLANK THEN USE THE DEFAULT WHICH IS THE MIDDLE OPTION FOR EXAMPLE DURATION DEFAULT IS ONE WEEK
+EXTRA NOTE: IF DISTANCE SELECTED IS LOCAL THAT MEANS FIND PLACES WITHIN THEIR COUNTRY
 
 REQUIREMENTS:
 1. OUTPUT MUST BE STRICTLY VALID JSON WITH THE FOLLOWING FORMAT:
@@ -115,18 +114,18 @@ EXAMPLE OF VALID OUTPUT:
 {
   "CountryCity1": {
     "Name": "Osaka, Japan",
-    "Reason1": "PERFECT BALANCE OF CITY AND NATURE AREAS",
-    "Reason2": "MATCHES USER'S FOOD AND SAFETY PREFERENCES",
-    "Reason3": "IDEAL WEATHER AND TRIP DURATION FOR USER"
+    "Reason1": "Perfect Balance of city and nature areas.",
+    "Reason2": "Matches user's food and safety preferences.",
+    "Reason3": "Ideal weather and trip duration for user."
   },
   "CountryCity2": {
-    "Name": "ROME, ITALY",
+    "Name": "Rome, Italy",
     "Reason1": "...",
     "Reason2": "...",
     "Reason3": "..."
   },
   "CountryCity3": {
-    "Name": "TORONTO, CANADA",
+    "Name": "Toronto, Canada",
     "Reason1": "...",
     "Reason2": "...",
     "Reason3": "..."
@@ -138,6 +137,37 @@ EXAMPLE OF VALID OUTPUT:
         const important = events.split('</think>')[1]?.trim()
         console.log(important)
         TopThree = JSON.parse(important)
+        const C1 = document.getElementById('Choice1')
+const Rs11 = document.getElementById('Reason1.1')
+const Rs12 = document.getElementById('Reason1.2')
+const Rs13 = document.getElementById('Reason1.3')
+
+const C2 = document.getElementById('Choice2')
+const Rs21 = document.getElementById('Reason2.1')
+const Rs22 = document.getElementById('Reason2.2')
+const Rs23 = document.getElementById('Reason2.3')
+
+const C3 = document.getElementById('Choice3')
+const Rs31 = document.getElementById('Reason3.1')
+const Rs32 = document.getElementById('Reason3.2')
+const Rs33 = document.getElementById('Reason3.3')
+
+C1.textContent = TopThree.CountryCity1.Name
+Rs11.textContent = TopThree.CountryCity1.Reason1
+Rs12.textContent = TopThree.CountryCity1.Reason2
+Rs13.textContent = TopThree.CountryCity1.Reason3
+
+C2.textContent = TopThree.CountryCity2.Name
+Rs21.textContent = TopThree.CountryCity2.Reason1
+Rs22.textContent = TopThree.CountryCity2.Reason2
+Rs23.textContent = TopThree.CountryCity2.Reason3
+
+C3.textContent = TopThree.CountryCity3.Name
+Rs31.textContent = TopThree.CountryCity3.Reason1
+Rs32.textContent = TopThree.CountryCity3.Reason2
+Rs33.textContent = TopThree.CountryCity3.Reason3
+
     })
     
 })
+
