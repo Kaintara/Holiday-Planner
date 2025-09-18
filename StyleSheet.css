@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Meow+Script&display=swap');
+
+html {
+    background-image: url(https://i.pinimg.com/564x/b8/9e/c9/b89ec905daa01e589e31f773ba23c832.jpg);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'Great Vibes', sans-serif;
+    text-align: center;
+    background-image: url();
+}
+
+p {
+    font-family: 'Meow Script';
+    text-align: center;
+}
+
+button {
+    border-radius: 30%;
+    border: 0;
+}
+
+
+.Appear {
+    display: none;
+}

@@ -1,5 +1,5 @@
 const container2 = document.querySelector('.Appear')
-container2.style.display = 'inline'
+container2.style.display = 'none'
 const form = document.getElementById('Holiday')
 const but = document.getElementById('save')
 
@@ -138,19 +138,22 @@ EXAMPLE OF VALID OUTPUT:
         console.log(important)
         TopThree = JSON.parse(important)
         const C1 = document.getElementById('Choice1')
-const Rs11 = document.getElementById('Reason1.1')
-const Rs12 = document.getElementById('Reason1.2')
-const Rs13 = document.getElementById('Reason1.3')
+const Rs11 = document.getElementById('Reason1_1')
+const Rs12 = document.getElementById('Reason1_2')
+const Rs13 = document.getElementById('Reason1_3')
 
 const C2 = document.getElementById('Choice2')
-const Rs21 = document.getElementById('Reason2.1')
-const Rs22 = document.getElementById('Reason2.2')
-const Rs23 = document.getElementById('Reason2.3')
+const Rs21 = document.getElementById('Reason2_1')
+const Rs22 = document.getElementById('Reason2_2')
+const Rs23 = document.getElementById('Reason2_3')
 
 const C3 = document.getElementById('Choice3')
-const Rs31 = document.getElementById('Reason3.1')
-const Rs32 = document.getElementById('Reason3.2')
-const Rs33 = document.getElementById('Reason3.3')
+const Rs31 = document.getElementById('Reason3_1')
+const Rs32 = document.getElementById('Reason3_2')
+const Rs33 = document.getElementById('Reason3_3')
+
+const load = document.getElementById('loading')
+load.style.display = 'none'
 
 C1.textContent = TopThree.CountryCity1.Name
 Rs11.textContent = TopThree.CountryCity1.Reason1
