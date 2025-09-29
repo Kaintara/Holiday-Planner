@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Meow+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Syne&display=swap');
 
 html, body {
     width: 100%;
@@ -19,18 +19,34 @@ body {
 }
 
 h1 {
-    font-family: 'Great Vibes', sans-serif;
+    font-family: 'Fraunces', sans-serif;
     text-align: center;
+    font-size: 5rem;
+    color: white;
 }
 
 p {
-    font-family: 'Meow Script';
+    font-family: 'Syne';
+    color: #ffe4c4;
     text-align: center;
 }
 
 button {
-    border-radius: 30%;
-    border: 0;
+    width: 200px;
+    height: 10px;
+    font-family: 'Syne';
+    border: none;
+    background-color: rgba(255, 228, 196,0.65);
+    color: black;
+    padding: 5%;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10%;
+    box-shadow: rgba(0, 0, 0, 0.18);
+
 }
 
 
@@ -43,7 +59,14 @@ button {
     padding: 0%;
     width: 100%;
     height: 100%;
-    z-index: 1;
     background-color: rgba(0,0,0,0.25);
     background-size: cover;
+}
+
+.main {
+    padding-top: 20%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
