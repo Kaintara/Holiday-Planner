@@ -7,7 +7,7 @@ const prog = document.getElementById("progress")
 right.addEventListener('click', function(){
     const current = prog_val.clientWidth
     const full = prog.clientWidth
-    const adder = full/11
+    const adder = full/14
 
 
     if (current === full) {
@@ -26,7 +26,7 @@ right.addEventListener('click', function(){
 left.addEventListener('click', function() {
     const current = prog_val.clientWidth
     const full = prog.clientWidth
-    const adder = full/11
+    const adder = full/14
 
     if (current === 0) {
         left.disabled = true

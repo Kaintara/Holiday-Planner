@@ -25,6 +25,14 @@ h1 {
     color: white;
 }
 
+h2 {
+    font-family: 'Fraunces';
+    text-align: center;
+    font-size: 3rem;
+    color: black;
+    text-shadow: 1px 1px 2px grey;
+}
+
 p {
     font-family: 'Syne';
     color: #ffe4c4;
@@ -95,6 +103,18 @@ button:hover {
     align-self: center;
     margin: 2%;
     display: flex;
+    flex-direction: column;
+}
+
+.progress-container {
+    aspect-ratio: 3/1;
+    background-color: transparent;
+    min-width: 100px;
+    width: 90vw;
+    height: 32px;
+    border-radius: 10px;
+    align-self: center;
+    display: flex;
     align-items: row;
 }
 
@@ -146,8 +166,13 @@ button:hover {
     text-align: center;
     margin-top: 0;
     position: relative;
-    background: blue;
+    background: rgb(241, 218, 155);
     width: 0%;
-    height: 18px;
+    height: 20px;
     border-radius: 100px;
+    align-self: center;
+}
+
+#btn1 {
+    align-items: center
 }
