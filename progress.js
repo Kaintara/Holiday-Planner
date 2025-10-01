@@ -4,6 +4,18 @@ const left = document.getElementById('left-arrow')
 const prog_val = document.getElementById("progressVal")
 const prog = document.getElementById("progress")
 
+const btn1 = document.getElementById("btn1")
+
+const pages = Array.from(document.querySelectorAll(".page"))
+
+function ChangePage(page) {
+    pages.forEach(element => {
+        element.style.display = 'none'
+    });
+    pages[page].style.display = 'flex'
+}
+
+
 right.addEventListener('click', function(){
     const current = prog_val.clientWidth
     const full = prog.clientWidth
@@ -16,6 +28,7 @@ right.addEventListener('click', function(){
     } else {
         left.disabled = false
         prog_val.style.width = (current + adder) + "px"
+        ChangePage(((current + adder)/full)*14 -1)
         if (prog_val.clientWidth === prog.clientWidth) {
             right.disabled = true
         }
@@ -34,6 +47,8 @@ left.addEventListener('click', function() {
     } else {
         right.disabled = false
         prog_val.style.width = (current - adder) + "px"
+        console.log(((current + adder)/full)*14 -1)
+        ChangePage(Math.floor(((current + adder)/full)*14 -1))
         if (prog_val.clientWidth === 0) {
             left.disabled = true
         }

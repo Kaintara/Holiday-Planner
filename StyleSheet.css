@@ -173,6 +173,24 @@ button:hover {
     align-self: center;
 }
 
+.page {
+    display:none
+}
+
+.pg1 {
+    display: flex;
+    flex-direction: column;
+}
+
+#hd1 {
+    align-self: center;
+    position: relative;
+    top: 30%
+}
+
 #btn1 {
-    align-items: center
+    align-self: center;
+    position: relative;
+    top: 80%
+
 }
