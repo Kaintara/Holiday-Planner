@@ -52,6 +52,10 @@ button {
 
 }
 
+button:hover {
+    background-color: rgba(255, 228, 196,1);
+}
+
 
 .Appear {
     display: none;
@@ -94,8 +98,11 @@ button {
     align-items: row;
 }
 
+#right-arrow:hover, #left-arrow:hover {
+    background-color: transparent;
+}
 
-.right-arrow, .left-arrow {
+#right-arrow, #left-arrow {
     padding: 0;
     background-repeat: no-repeat;
     background-position: center;
@@ -109,15 +116,20 @@ button {
     height:20px;
 }
 
-.left-arrow {
+#left-arrow {
     background-image: url(angle-double-left.svg);
 }
 
-.right-arrow {
+#right-arrow {
     background-image: url(angle-double-right.svg);
 }
 
-.progress {
+#right-arrow:disabled, #left-arrow:disabled {
+    filter: grayscale(100%);
+    opacity: 0.6;
+}
+
+#progress {
     text-align: center;
     margin-top: 1%;
     top:0;
@@ -130,12 +142,12 @@ button {
     align-items: flex-start;
 }
 
-.progressVal {
+#progressVal {
     text-align: center;
     margin-top: 0;
     position: relative;
     background: blue;
-    width: 78%;
+    width: 0%;
     height: 18px;
     border-radius: 100px;
 }
