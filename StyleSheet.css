@@ -94,20 +94,27 @@ button {
     align-items: row;
 }
 
+
 .right-arrow, .left-arrow {
+    padding: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 20px;
+    margin-top: 0.5%;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: transparent;
     width: 5%;
-    height:fit-content;
-    background: rgba(255, 228, 196, 0.65);
+    height:20px;
 }
 
-.arrow-img {
-    max-height: len;
-    width: auto;
-    object-fit: contain;
+.left-arrow {
+    background-image: url(angle-double-left.svg);
+}
+
+.right-arrow {
+    background-image: url(angle-double-right.svg);
 }
 
 .progress {
