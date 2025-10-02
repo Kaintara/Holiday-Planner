@@ -3,9 +3,14 @@ container2.style.display = 'none'
 const form = document.getElementById('Holiday')
 const form1 = document.getElementById('form')
 const but = document.getElementById('save')
+const Notes = document.getElementById('add')
+
 
 form1.addEventListener('submit', function(event){
     event.preventDefault();
+    const Notes = document.getElementById('add')
+
+    console.log(Notes.textContent)
 })
 
 form.addEventListener('submit', function(event){
@@ -69,6 +74,7 @@ USER SELECTED PREFERENCES:
 - TYPE OF HOLIDAY: ${UserInput.Type}
 - SAFETY PRIORITY: ${UserInput.Safety}
 - FOOD IMPORTANCE: ${UserInput.Food}
+- ACCOMPANIMENT: ${UserInput.Group}
 - DURATION OF STAY: ${UserInput.Days}
 - ADDTIONAL NOTES: ${UserInput.AddNotes}
 
@@ -80,6 +86,7 @@ ALL AVAILABLE OPTIONS FOR COMPARISON:
 - HOLIDAY TYPE: COMPLETE RELAXATION, MOSTLY RELAXING, BALANCED, MOSTLY ADVENTURE, COMPLETE ADVENTURE
 - SAFETY: TOP PRIORITY, 4, MID PRIORITY, 2, LOWEST PRIORITY
 - FOOD IMPORTANCE: TOP PRIORITY, 4, MID PRIORITY, 2, LOWEST PRIORITY
+- ACCOMPANIMENT: NO-ONE, FAMILY - ADULT ONLY, FAMLIY, FRIENDS, PARTNER
 - DURATION: ONE DAY, COUPLE OF DAYS, ONE WEEK, COUPLE OF WEEKS, MONTH+
 
 NOTE: IF A USER'S OPTION IS LEFT BLANK THEN USE THE DEFAULT WHICH IS THE MIDDLE OPTION FOR EXAMPLE DURATION DEFAULT IS ONE WEEK
