@@ -7,51 +7,43 @@ const prog = document.getElementById("progress")
 const btn1 = document.getElementById("btn1")
 
 const pages = Array.from(document.querySelectorAll(".page"))
+pages.forEach(el => console.log(el))
+pages[0].style.display = 'flex'
 
-function ChangePage(page) {
+let pgnum = 0
+const totalpages = pages.length - 1
+
+function ChangePage(pgnum) {
     pages.forEach(element => {
         element.style.display = 'none'
     });
-    pages[page].style.display = 'flex'
+    pages[pgnum].style.display = 'flex'
+}
+
+function Changeprog() {
+    const full = prog.clientWidth
+    const adder = full/totalpages
+    prog_val.style.width = (pgnum * adder) + "px"
+
+    left.disabled = (pgnum === 0)
+    right.disabled = (pgnum === totalpages)
 }
 
 
 right.addEventListener('click', function(){
-    const current = prog_val.clientWidth
-    const full = prog.clientWidth
-    const adder = full/14
-
-
-    if (current === full) {
-        right.disabled = true
-        return
-    } else {
-        left.disabled = false
-        prog_val.style.width = (current + adder) + "px"
-        ChangePage(((current + adder)/full)*14 -1)
-        if (prog_val.clientWidth === prog.clientWidth) {
-            right.disabled = true
-        }
+    console.log(pgnum)
+    if (pgnum !== totalpages) {
+        pgnum++
+        ChangePage(pgnum)
+        Changeprog()
     }
-    console.log("hello!")
 })
 
 left.addEventListener('click', function() {
-    const current = prog_val.clientWidth
-    const full = prog.clientWidth
-    const adder = full/14
-
-    if (current === 0) {
-        left.disabled = true
-        return
-    } else {
-        right.disabled = false
-        prog_val.style.width = (current - adder) + "px"
-        console.log(((current + adder)/full)*14 -1)
-        ChangePage(Math.floor(((current + adder)/full)*14 -1))
-        if (prog_val.clientWidth === 0) {
-            left.disabled = true
-        }
+    console.log(pgnum)
+    if (pgnum !== 0) {
+        pgnum--
+        ChangePage(pgnum)
+        Changeprog()
     }
-    console.log("hello again!")
 })
