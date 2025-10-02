@@ -15,8 +15,8 @@ const slider7 = document.getElementById('slider7');
 const output7 = document.getElementById('sliderValue7');
 
 const areas = ["Completely Urban Setting","Mostly Urban","Balanced","Mostly Natural","Complete Natural Setting"]
-const temps = ["Very Hot","Mild Heat","Cool","Chilly","Freezing"]
-const dis = ["Local","Bordering Countries","Same continent","Ajacent Continents","Anywhere"]
+const temps = ["Sweltering","Warm","Cool","Chilly","Freezing"]
+const dis = ["Local Area","Bordering Countries","Same continent","Ajacent Continents","Anywhere"]
 const saf = ["Top Priority","4","Mid Priority","2","Lowest Priority"]
 const type = ["Complete Relaxation","Mostly Relaxing","Balanced","Mostly Adventure","Complete Adventure"]
 const food = ["Top Priority","4","Mid Priority","2","Lowest Priority"]
@@ -31,29 +31,35 @@ slider1.addEventListener('input', function() {
 slider2.addEventListener('input', function() {
     const index = Number(slider2.value) - 1
     output2.textContent = temps[index];
+    output2.classList.add("text")
 })
 
 slider3.addEventListener('input', function() {
     const index = Number(slider3.value) - 1
     output3.textContent = dis[index];
+    output3.classList.add("text")
 })
 
 slider4.addEventListener('input', function() {
     const index = Number(slider4.value) - 1
     output4.textContent = saf[index];
+    output4.classList.add("text")
 })
 
 slider5.addEventListener('input', function() {
     const index = Number(slider5.value) - 1
     output5.textContent = type[index];
+    output5.classList.add("text")
 })
 
 slider6.addEventListener('input', function() {
     const index = Number(slider6.value) - 1
     output6.textContent = food[index];
+    output6.classList.add("text")
 })
 
 slider7.addEventListener('input', function() {
     const index = Number(slider7.value) - 1
     output7.textContent = days[index];
+    output7.classList.add("text")
 })

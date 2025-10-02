@@ -138,6 +138,10 @@ label, .text {
     padding: 0;
 }
 
+form {
+    display: contents;
+}
+
 .Box {
     aspect-ratio: 3/1;
     background-color: white;
