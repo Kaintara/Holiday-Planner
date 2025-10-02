@@ -13,7 +13,7 @@
             <p id="Change">Below are choices which will help determine where the best desistantion for you is!</p>
             </div>
         </main>
-        <form>
+        <form id="form">
             <div class="Box">
                 <div class="progress-container">
                     <button type="button" disabled id="left-arrow"></button>
@@ -30,17 +30,29 @@
                     <h2 id="hd3">Where are you based?</h2>
                     <div>
                         <label><p>Country</p><input id="cont" type="text"></label>
-                        <label><p>City</p><input id ="city" type=text></label>
+                        <label><p>City</p><input id ="city" type=text ></label>
                     </div>
                     <button type="button" class="nxtpg" id="btn2">Next Page</button>
                 </div>
                 <div class="page" id="pg3">
-                    <h2 id="hd2">Start the Survey!</h2>
-                    <button id="btn2">GO!</button>
+                    <h2 id="hd3">What is your estimated budget?</h2>
+                    <div>
+                        <label><input type="radio" name="Budget" value="1" title="Less than 100">£</label>
+                        <label><input type="radio" name="Budget" value="2" title="Budget Friendly">££</label>
+                        <label><input type="radio" name="Budget" value="3" title="Average Costs">£££</label>
+                        <label><input type="radio" name="Budget" value="4" title="Above Average">££££</label>
+                        <label><input type="radio" name="Budget" value="5" title="No limit">£££££</label>
+                </div>
+                    <button id="btn3" class="nxtpg">Next Page</button>
                 </div>
                 <div class="page" id="pg4">
-                    <h2 id="hd2">Start the Survey!</h2>
-                    <button id="btn2">GO!</button>
+                    <h2>Do you prefer an Urban or Natural setting?</h2>
+                    <div style="display: flex; flex-direction: column;">
+                        <label for="slider1"><input type="range" id="slider1" min="1" max="5" step="1"></label>
+                        <br>
+                        <span id="sliderValue1"><p class="text">Balanced</p></span>
+                    </div>
+                    <button id="btn4" class="nxtpg">Next Page</button>
                 </div>
                 <div class="page" id="pg5">
                     <h2 id="hd2">Start the Survey!</h2>

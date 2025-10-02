@@ -9,7 +9,6 @@ const btn1 = document.getElementById("btn1")
 const pages = Array.from(document.querySelectorAll(".page"))
 const btns = Array.from(document.querySelectorAll(".nxtpg"))
 
-
 let pgnum = 0
 const totalpages = pages.length - 1
 

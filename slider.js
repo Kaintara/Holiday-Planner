@@ -14,7 +14,7 @@ const output6 = document.getElementById('sliderValue6');
 const slider7 = document.getElementById('slider7');
 const output7 = document.getElementById('sliderValue7');
 
-const areas = ["Inner City","Green Urban","Balanced","Nature-Focused Towns","Remote Nature"]
+const areas = ["Completely Urban Setting","Mostly Urban","Balanced","Mostly Natural","Complete Natural Setting"]
 const temps = ["Very Hot","Mild Heat","Cool","Chilly","Freezing"]
 const dis = ["Local","Bordering Countries","Same continent","Ajacent Continents","Anywhere"]
 const saf = ["Top Priority","4","Mid Priority","2","Lowest Priority"]
@@ -25,6 +25,7 @@ const days = ["One Day","Couple of Days","One Week","Couple of Weeks","Month+"]
 slider1.addEventListener('input', function() {
     const index = Number(slider1.value) - 1
     output1.textContent = areas[index];
+    output1.classList.add("text")
 })
 
 slider2.addEventListener('input', function() {

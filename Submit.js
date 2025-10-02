@@ -1,7 +1,12 @@
 const container2 = document.querySelector('.Appear')
 container2.style.display = 'none'
 const form = document.getElementById('Holiday')
+const form1 = document.getElementById('form')
 const but = document.getElementById('save')
+
+form1.addEventListener('submit', function(event){
+    event.preventDefault();
+})
 
 form.addEventListener('submit', function(event){
     event.preventDefault();
