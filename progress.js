@@ -7,17 +7,19 @@ const prog = document.getElementById("progress")
 const btn1 = document.getElementById("btn1")
 
 const pages = Array.from(document.querySelectorAll(".page"))
-pages.forEach(el => console.log(el))
-pages[0].style.display = 'flex'
+const btns = Array.from(document.querySelectorAll(".nxtpg"))
+
 
 let pgnum = 0
 const totalpages = pages.length - 1
 
-function ChangePage(pgnum) {
+function ChangePage() {
     pages.forEach(element => {
         element.style.display = 'none'
     });
     pages[pgnum].style.display = 'flex'
+    pages[pgnum].style.flexDirection = 'column'
+    pages[pgnum].style.alignItems = 'center'
 }
 
 function Changeprog() {
@@ -31,19 +33,31 @@ function Changeprog() {
 
 
 right.addEventListener('click', function(){
-    console.log(pgnum)
     if (pgnum !== totalpages) {
         pgnum++
-        ChangePage(pgnum)
+        ChangePage()
         Changeprog()
     }
 })
 
 left.addEventListener('click', function() {
-    console.log(pgnum)
     if (pgnum !== 0) {
         pgnum--
-        ChangePage(pgnum)
+        ChangePage()
         Changeprog()
     }
+})
+
+btn1.addEventListener('click', function() {
+    pgnum++
+    ChangePage()
+    Changeprog()
+})
+
+btns.forEach(el => {
+    el.addEventListener('click', function() {
+    pgnum++
+    ChangePage()
+    Changeprog()
+})
 })

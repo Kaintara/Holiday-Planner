@@ -64,6 +64,16 @@ button:hover {
     background-color: rgba(255, 228, 196,1);
 }
 
+input[type="text"] {
+    border-radius: 10px;
+    min-width: 142px;
+    min-height: 23px;
+}
+
+label {
+   text-shadow: 1px 1px 2px grey; 
+   font-weight: bold;
+}
 
 .Appear {
     display: none;
@@ -175,14 +185,15 @@ button:hover {
 
 .page {
     display: none;
+    height: fit-content;
 }
 
-.pg1 {
+#pg1 {
     display: flex;
     flex-direction: column;
 }
 
-#hd1 {
+#hd1,#hd2 {
     align-self: center;
     position: relative;
     top: 30%
@@ -193,4 +204,8 @@ button:hover {
     position: relative;
     top: 80%
 
+}
+
+.nxtpg {
+    margin-top: 5%;
 }
