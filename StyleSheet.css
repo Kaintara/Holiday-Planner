@@ -105,7 +105,7 @@ input[type="range"]::-webkit-slider-runnable-track {
     cursor: pointer;
 }
 
-.text {
+.text, #belowtext {
     font-family: 'Syne';
     color: #ffe4c4;
     text-align: center;
@@ -257,4 +257,19 @@ form {
 
 .nxtpg {
     margin-top: 5%;
+}
+
+#loadingscreen {
+    align-items: center;
+    border: 16px solid rgb(0, 0, 0,0.18);
+    border-top: 16px solid rgb(241, 218, 155);
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
 }

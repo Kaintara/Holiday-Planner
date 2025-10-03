@@ -120,8 +120,11 @@
                 </div>     
             </div>
         </form>
-        <div class="Appear">
-            <p id="loading">GENERATING.....</p>
+        <div class="Appear" class="overlay">
+            <div id="loading">
+                <p>GENERATING.....</p>
+                <div id="loadingscreen"></div>
+            </div>
             <h2 class="choice" id="Choice1"></h2>
             <p id="Reason1_1"></p>
             <p id="Reason2_1"></p>
@@ -135,10 +138,11 @@
             <p id="Reason2_3"></p>
             <p id="Reason3_3"></p>
             <p id="belowtext"></p>
-            <button onclick="window.location.href='questions.html'" id="save">Click Me!</button>
+            <button id="save">Click Me!</button>
         </div>
         <script src="slider.js"></script>
         <script src="progress.js"></script>
         <script src="Submit.js"></script>
+        <script src="getsave.js"></script>
     </body>
 </html>

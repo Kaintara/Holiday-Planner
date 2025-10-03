@@ -5,10 +5,18 @@ const but = document.getElementById('save')
 
 const btn = document.getElementById('finalbtn')
 
+var UserInput = 'null'
+
 btn.addEventListener('click', function() {
   form.style.display = 'none'
   container2.style.display = 'flex';
   container2.style.flexDirection = 'column'
+  const load = document.getElementById('loading')
+  load.style.display= "flex"
+  load.style.flexDirection = 'column'
+  load.style.alignItems = 'center'
+  const savebtn = document.getElementById('save')
+  savebtn.style.display = 'none';
   const NewText = document.getElementById('Change')
     NewText.textContent = "Below should be your Top 3 trip destinations!"
     const country = document.getElementById('cont')
@@ -36,7 +44,7 @@ btn.addEventListener('click', function() {
         }
     })
     
-    const UserInput = {
+    UserInput = {
         User_Country: country.value,
         User_City: city.value,
         Budget: Bud,
@@ -155,8 +163,10 @@ const Rs31 = document.getElementById('Reason3_1')
 const Rs32 = document.getElementById('Reason3_2')
 const Rs33 = document.getElementById('Reason3_3')
 
-const load = document.getElementById('loading')
 load.style.display = 'none'
+const savebtn = document.getElementById('save')
+savebtn.style.display = 'inline-flex';
+savebtn.style.alignSelf = 'center'
 
 C1.textContent = TopThree.CountryCity1.Name
 Rs11.textContent = TopThree.CountryCity1.Reason1
@@ -178,8 +188,21 @@ title.textContent = "Your Ideal Holiday is..."
 const extra = document.getElementById('belowtext')
 extra.textContent = "Got an idea of where you want to go? Click the button below to find out some things you can do that will appeal to you!"
 
+UserInput['Choice1'] = TopThree.CountryCity1.Name
+UserInput['Choice2'] = TopThree.CountryCity2.Name
+UserInput['Choice3'] = TopThree.CountryCity3.Name
+
     })
 
+})
+
+const savebtn = document.getElementById('save')
+
+savebtn.addEventListener('click', function() {
+  if (UserInput != 'Null') {
+    sessionStorage.setItem("UserInput",JSON.stringify(UserInput));
+    window.location.href='questions.html'
+  }  
 })
 
 
