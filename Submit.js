@@ -11,6 +11,8 @@ btn.addEventListener('click', function() {
   form.style.display = 'none'
   container2.style.display = 'flex';
   container2.style.flexDirection = 'column'
+  container2.style.backgroundColor = 'rgba(0,0,0,0.25)'
+  container2.style.backgroundSize = 'cover';
   const load = document.getElementById('loading')
   load.style.display= "flex"
   load.style.flexDirection = 'column'

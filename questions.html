@@ -7,9 +7,45 @@
     <link rel="stylesheet" href="StyleSheet.css">
     </head>
     <body>
-        <h1>Plan Your Ideal Holiday!</h1>
-        idk how to comment lol put here the same questions as before so the AI knows what type of activities to generate. If the user can from finding a place already ask them to input the country they pick and use their save data to contiune here.
+        <main class="main" id="planner">
+            <div class="overlay">
+            <h1 id="title">Plan Your Ideal Holiday!</h1>
+            <p id="Change">Below are choices which will help determine your itinerary for your upcoming holiday!</p>
+            </div>
+        </main>
+        <form class="Disappear">
+            <div class="Box">
+                <div class="progress-container">
+                    <button type="button" disabled id="left-arrow"></button>
+                    <div id="progress">
+                        <div id="progressVal"></div>
+                    </div>
+                    <button type="button" id="right-arrow"></button>
+                </div>
+                <div class="page" id="pg1">
+                    <h2 id="hd1">Start the Survey!</h2>
+                    <button type="button" id="btn1">GO!</button>
+                </div>
+                <div class="page" id="pg2">
+                    <h2>Which Country and City are you visting?</h2>
+                    <div id="nodata">
+                        <label><p>Country</p><input id="cont" type="text"></label>
+                        <label><p>City</p><input id ="city" type=text ></label>
+                        <button class="nxtpg">Next Page</button>
+                    </div>
+                    <div id="data">
+                        <button type="button" id="bt1"></button>
+                        <button type="button" id="bt2"></button>
+                        <button type="button" id="bt3"></button>
+                    </div>
+                    <div class="page" id="pg2">
+
+                        <button class="nxtpg">Next Page</button>
+                    </div>
+                </div>
+            </div>
+        </form>
     </body>
-    
-    <script src="getsave.js"></script>
+    <script src="planner.js"></script>
+    <script src="progress.js"></script>
 </html> 
