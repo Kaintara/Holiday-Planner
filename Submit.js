@@ -1,25 +1,16 @@
 const container2 = document.querySelector('.Appear')
 container2.style.display = 'none'
-const form = document.getElementById('Holiday')
-const form1 = document.getElementById('form')
+const form = document.getElementById('form')
 const but = document.getElementById('save')
-const Notes = document.getElementById('add')
 
+const btn = document.getElementById('finalbtn')
 
-form1.addEventListener('submit', function(event){
-    event.preventDefault();
-    const Notes = document.getElementById('add')
-
-    console.log(Notes.textContent)
-})
-
-form.addEventListener('submit', function(event){
-    event.preventDefault();
-    const container = document.querySelector('.Disappear')
-    container.style.display = 'none';
-    container2.style.display = 'inline';
-    const NewText = document.getElementById('Change')
-    NewText.textContent = "Below should be your Top 3 trip destinantions! It takes some time to generate so hang tight."
+btn.addEventListener('click', function() {
+  form.style.display = 'none'
+  container2.style.display = 'flex';
+  container2.style.flexDirection = 'column'
+  const NewText = document.getElementById('Change')
+    NewText.textContent = "Below should be your Top 3 trip destinations!"
     const country = document.getElementById('cont')
     const city = document.getElementById('city')
     const Notes = document.getElementById('add')
@@ -46,8 +37,8 @@ form.addEventListener('submit', function(event){
     })
     
     const UserInput = {
-        User_Country: country.textContent,
-        User_City: city.textContent,
+        User_Country: country.value,
+        User_City: city.value,
         Budget: Bud,
         Area: slider1Value,
         Weather: slider2Value,
@@ -57,7 +48,7 @@ form.addEventListener('submit', function(event){
         Food: slider6Value,
         Group: Grp,
         Days: slider7Value,
-        AddNotes: Notes.textContent,
+        AddNotes: Notes.value,
     }
 
     fetch ('https://ai.hackclub.com/chat/completions', {
@@ -182,7 +173,16 @@ Rs31.textContent = TopThree.CountryCity3.Reason1
 Rs32.textContent = TopThree.CountryCity3.Reason2
 Rs33.textContent = TopThree.CountryCity3.Reason3
 
+const title = document.getElementById('title')
+title.textContent = "Your Ideal Holiday is..."
+const extra = document.getElementById('belowtext')
+extra.textContent = "Got an idea of where you want to go? Click the button below to find out some things you can do that will appeal to you!"
+
     })
-    
+
 })
 
+
+form.addEventListener('submit', function(event){
+    event.preventDefault();
+})

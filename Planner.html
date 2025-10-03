@@ -9,11 +9,11 @@
     <body>
         <main class="main" id="planner">
             <div class="overlay">
-            <h1>Generate Your Ideal Holiday!</h1>
-            <p id="Change">Below are choices which will help determine where the best desistantion for you is!</p>
+            <h1 id="title">Generate Your Ideal Holiday!</h1>
+            <p id="Change">Below are choices which will help determine where the best destinations for you is!</p>
             </div>
         </main>
-        <form id="form">
+        <form id="form" class="Disappear">
             <div class="Box">
                 <div class="progress-container">
                     <button type="button" disabled id="left-arrow"></button>
@@ -111,109 +111,34 @@
                 </div>
                 <div class="page" id="pg12">
                     <h2>Anything Else You'd Like To Add?</h2>
-                    <label><p id="add"></p><textarea rows="5" cols="50" form="form" placeholder="Write anything else you’d like included in your holiday—special activities, preferences, or must-see places"></textarea></label>
+                    <textarea id="add" rows="5" cols="50" form="form" placeholder="Write anything else you’d like included in your holiday—special activities, preferences, or must-see places"></textarea>
                     <button class="nxtpg">Next Page</button>
                 </div>
                 <div class="page" id="pg13">
                     <h2>Ready to submit?</h2>
-                    <button type="submit" class="nxtpg">Submit</button>
+                    <button type="submit" id="finalbtn">Generate Holiday Desistantion</button>
                 </div>     
             </div>
         </form>
         <div class="Appear">
-            <h2>Your Ideal Holiday is...</h2>
             <p id="loading">GENERATING.....</p>
-            <h3 id="Choice1"></h3>
+            <h2 class="choice" id="Choice1"></h2>
             <p id="Reason1_1"></p>
             <p id="Reason2_1"></p>
             <p id="Reason3_1"></p>
-            <h3 id="Choice2"></h3>
+            <h2 class="choice" id="Choice2"></h2>
             <p id="Reason1_2"></p>
             <p id="Reason2_2"></p>
             <p id="Reason3_2"></p>
-            <h3 id="Choice3"></h3>
+            <h2 class="choice" id="Choice3"></h2>
             <p id="Reason1_3"></p>
             <p id="Reason2_3"></p>
             <p id="Reason3_3"></p>
-            <p>Got an idea of where you want to go? Click the button below to find out some things you can do that will appeal to you!</p>
-            <button onclick="window.location.href='questions.html'" id="save"></button>
+            <p id="belowtext"></p>
+            <button onclick="window.location.href='questions.html'" id="save">Click Me!</button>
         </div>
-        <form class="Disappear" id="Holiday">
-            <div>
-                <label><p>Country</p><input id="cont" type="text"></label>
-                <label><p>City</p><input id ="city" type=text></label>
-            </div>
-            <div>
-                <h2>Budget</h2>
-                <label><input type="radio" name="Budget" value="1" title="Less than 100">£</label>
-                <label><input type="radio" name="Budget" value="2" title="Budget Friendly">££</label>
-                <label><input type="radio" name="Budget" value="3" title="Average Costs">£££</label>
-                <label><input type="radio" name="Budget" value="4" title="Above Average">££££</label>
-                <label><input type="radio" name="Budget" value="5" title="No limit">£££££</label>
-            </div>
-            <div>
-                <h2>Urban or Natural</h2>
-                <label for="slider1">
-                    <input type="range" id="slider1" min="1" max="5" step="1">
-                </label>
-                <span id="sliderValue1"><p>Balanced</p></span>
-            </div>
-            <div>
-                <h2>Hot or Cold</h2>
-                <label for="slider2">
-                    <input type="range" id="slider2" min="1" max="5" step="1">
-                </label>
-                <span id="sliderValue2"><p>Cool</p></span>
-            </div>
-            <div >
-                <h2>Local or Far away</h2>
-                <label for="slider3">
-                    <input type="range" id="slider3" min="1" max="5" step="1">
-                </label>
-                <span id="sliderValue3"><p>Same continent</p></span>
-            </div>
-            <div>
-                <h2>Safety</h2>
-                <label for="slider4">
-                    <input type="range" id="slider4" min="1" max="5" step="1">
-                </label>
-                <span id="sliderValue4"><p>Mid Priority</p></span>
-            </div>
-            <div>
-                <h2>Relaxation or Adventure</h2>
-                <label for="slider5">
-                    <input type="range" id="slider5" min="1" max="5" step="1">
-                </label>
-                <span id="sliderValue5"><p>Balanced</p></span>
-            </div>
-            <div>
-                <h2>Food Quality</h2>
-                <label for="slider6">
-                    <input type="range" id="slider6" min="1" max="5" step="1">
-                </label>
-                <span id="sliderValue6"><p>Mid Priority</p></span>
-            </div>
-            <div>
-                <h2>Group</h2>
-                <label><input type="radio" name="Group" value="1" title="Solo">Solo</label>
-                <label><input type="radio" name="Group" value="2" title="Family-Friendly">Family-Friendly</label>
-                <label><input type="radio" name="Group" value="3" title="Adult Family" >Adult Famliy</label>
-                <label><input type="radio" name="Group" value="4" title="Friends">Friends</label>
-            </div>
-            <div>
-                <h2>Duration</h2>
-                <label for="slider7">
-                    <input type="range" id="slider7" min="1" max="5" step="1">
-                </label>
-                <span id="sliderValue7"><p>One Week</p></span>
-            </div>
-            <script src="slider.js"></script>
-            <div>
-                <label><p id="add" title="Add any thing else you expect in your dream holiday.">Addtional Notes</p><input type="text"></label>
-            </div>
-            <button type="submit">Submit</button>
-            <script src="progress.js"></script>
-            <script src="Submit.js"></script>
-        </form>
+        <script src="slider.js"></script>
+        <script src="progress.js"></script>
+        <script src="Submit.js"></script>
     </body>
 </html>

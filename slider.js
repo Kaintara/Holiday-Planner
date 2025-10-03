@@ -16,7 +16,7 @@ const output7 = document.getElementById('sliderValue7');
 
 const areas = ["Completely Urban Setting","Mostly Urban","Balanced","Mostly Natural","Complete Natural Setting"]
 const temps = ["Sweltering","Warm","Cool","Chilly","Freezing"]
-const dis = ["Local Area","Bordering Countries","Same continent","Ajacent Continents","Anywhere"]
+const dis = ["Local Area","Bordering Countries","Same continent","Adjacent Continents","Anywhere"]
 const saf = ["Top Priority","4","Mid Priority","2","Lowest Priority"]
 const type = ["Complete Relaxation","Mostly Relaxing","Balanced","Mostly Adventure","Complete Adventure"]
 const food = ["Top Priority","4","Mid Priority","2","Lowest Priority"]
