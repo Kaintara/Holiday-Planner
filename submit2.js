@@ -5,6 +5,10 @@ start.setAttribute("min",today)
 const end = document.getElementById("end")
 end.setAttribute("min",today)
 
+start.addEventListener('change',function(event){
+    end.setAttribute("min",event.target.value)
+})
+
 const form = document.getElementById('plan')
 
 form.addEventListener('submit', function(event){
@@ -14,6 +18,8 @@ form.addEventListener('submit', function(event){
 
 const btn2 = document.getElementById('finalbtn2')
 const div = document.getElementById('open')
+
+var userData = {}
 
 btn2.addEventListener('click', function(){
     form.style.display = 'none'
@@ -27,5 +33,55 @@ btn2.addEventListener('click', function(){
     load.style.alignItems = 'center'
     const NewText = document.getElementById('Change2')
     NewText.textContent = "Below should be a draft plan for your holiday!"
+    const SavedData = sessionStorage.getItem("UserInput")
+        if (SavedData) {
+            userData = {
+
+            }
+        } else {
+            const country = document.getElementById('cont2')
+            const city = document.getElementById('city2')
+            const start = document.getElementById('start')
+            const end = document.getElementById('end')
+            var Grp = ''
+            const Grps = document.getElementsByName('Group') 
+            Grps.forEach(radio => {
+                if (radio.checked) {
+                    Grp = radio.title
+                }})
+            var Bud = ''
+            const Buds = document.getElementsByName('Budget') 
+            Buds.forEach(radio => {
+            if (radio.checked) {
+                Bud = radio.title
+                }})
+            var accom = ''
+            const accoms = document.getElementsByName('Accom') 
+            accoms.forEach(radio => {
+            if (radio.checked) {
+                accom = radio.title
+                }})
+            var activ = []
+            const activs = document.getElementsByName('Activ') 
+            activs.forEach(radio => {
+            if (radio.checked) {
+                activ.push(radio.title)
+                }})
+            const avoid = document.getElementById('avoid')
+            const must = document.getElementById('must')
+            userData = {
+                Country: country.value,
+                City: city.value,
+                Starting_Date: start.value,
+                Ending_Date: end.value,
+                Group: Grp,
+                Budget: Bud,
+                Accom: accom,
+                Activ: activ,
+                Avoid: avoid.value,
+                Must: must.value,
+            }
+            console.log(userData)    
+        }
     
 })
