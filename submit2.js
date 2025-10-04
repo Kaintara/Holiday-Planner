@@ -35,8 +35,32 @@ btn2.addEventListener('click', function(){
     NewText.textContent = "Below should be a draft plan for your holiday!"
     const SavedData = sessionStorage.getItem("UserInput")
         if (SavedData) {
+            const start = document.getElementById('start')
+            const end = document.getElementById('end')
+            var accom = ''
+            const accoms = document.getElementsByName('Accom') 
+            accoms.forEach(radio => {
+            if (radio.checked) {
+                accom = radio.title
+                }})
+            var activ = []
+            const activs = document.getElementsByName('Activ') 
+            activs.forEach(radio => {
+            if (radio.checked) {
+                activ.push(radio.title)
+                }})
+            const avoid = document.getElementById('avoid')
+            const must = document.getElementById('must')
             userData = {
-
+                countrycity: CountryCity,
+                Starting_Date: start.value,
+                Ending_Date: end.value,
+                Group: SavedData['Group'],
+                Budget: SavedData['Budget'],
+                Accom: accom,
+                Activ: activ,
+                Avoid: avoid.value,
+                Must: [must.value,SavedData['AddNotes']]
             }
         } else {
             const country = document.getElementById('cont2')
@@ -80,8 +104,141 @@ btn2.addEventListener('click', function(){
                 Activ: activ,
                 Avoid: avoid.value,
                 Must: must.value,
-            }
-            console.log(userData)    
+            }  
         }
-    
-})
+        fetch ('https://ai.hackclub.com/chat/completions', {
+            method: 'POST',
+            headers: { "Content-Type": 'application/json'},
+            body: JSON.stringify({"messages":[{"role": "user", "content": `
+                You are an AI travel planner. Using the following user data:
+
+Visting Country: ${userData.Country} or ${userData.CountryCity},
+Visting City: ${userData.City},
+Starting_Date: ${userData.Starting_Date},
+Ending_Date: ${userData.Ending_Date},
+Group: ${userData.Group},
+Budget: ${userData.Budget},
+Accom: ${userData.Accom},
+Activ: ${userData.Activ},
+Avoid: ${userData.Avoid},
+Must: ${userData.Must}
+
+
+Generate a complete holiday itinerary in JSON format only (no extra text). Follow these exact guidelines:
+
+Top Accommodations Section:
+
+Include the top three accommodations in the selected city and country.
+
+Filter based on the budget and accommodation preference (Accom).
+
+If no details are provided, use generic/popular hotels or stays suitable for the average tourist budget.
+
+Each accommodation should include:
+
+- name
+
+- type
+
+- price_range
+
+- rating
+
+- location
+
+- description
+
+Itinerary Section:
+
+Create a daily plan covering every day between Starting_Date and Ending_Date.
+
+For each day, include:
+
+- date
+
+- activities (at least one per day based on the user’s interests in Activ)
+
+- location or area for the activity
+
+- description
+
+- notes for travel times, meals, or optional events
+
+Consider arrival and departure days — include travel time and light or rest activities accordingly.
+
+Check for any festivals or events happening in that city or country during those dates and include them if relevant.
+
+Priority Handling:
+
+Put strong emphasis on:
+
+Things to avoid (Avoid) — these must not appear anywhere in the plan.
+
+Things that are a must (Must) — these must definitely appear at least once, ideally highlighted or emphasized.
+
+Defaults and Fallbacks:
+
+If any field in the input is blank or missing, use default or most popular options for that location.
+
+If no activities are given, use sightseeing, local food experiences, and nature visits.
+
+If no budget is given, assume a mid-range plan.
+
+If no accommodation type is given, use a mix of 3-star hotels.
+
+JSON Structure Example (for format reference only, add more accommodations and dates if possible):
+{
+"destination": {
+"country": "Japan",
+"city": "Tokyo"
+},
+"travel_dates": {
+"start": "2025-09-10",
+"end": "2025-09-15"
+},
+"accommodations": [
+{
+"name": "Hotel Sakura Shinjuku",
+"type": "3-star hotel",
+"price_range": "$$",
+"rating": 4.3,
+"location": "Shinjuku, Tokyo",
+"description": "Modern hotel close to train station with breakfast included."
+}
+],
+"itinerary": [
+{
+"date": "2025-09-10",
+"activities": [
+{
+"name": "Arrival & Local Dinner",
+"location": "Shinjuku",
+"description": "Arrive in Tokyo, check into hotel, and enjoy a casual dinner nearby.",
+"notes": "Allow rest time after flight."
+}
+]
+}
+],
+"special_notes": [
+"Avoid crowded nightlife areas.",
+"Must include a sushi-making class experience."
+]
+}
+
+Additional Instructions:
+
+Ensure all text values are human-readable and descriptive (not placeholders).
+
+The output must be valid JSON that can be parsed directly into a JavaScript object.
+
+Do not include explanations, markdown, or extra formatting — JSON only.
+                
+                `}]}),}).then(result => result.json())
+    .then(eventsResponse =>{
+        const events = eventsResponse.choices[0].message.content
+        const important = events.split('</think>')[1]?.trim()
+        console.log(important)
+        TopThree = JSON.parse(important)
+        load.style.display= "none"
+
+    })})  
