@@ -31,21 +31,42 @@
                     <div id="nodata">
                         <label><p>Country</p><input id="cont" type="text"></label>
                         <label><p>City</p><input id ="city" type=text ></label>
-                        <button class="nxtpg">Next Page</button>
+                        <button type="button" class="nxtpg">Next Page</button>
                     </div>
                     <div id="data">
                         <button type="button" id="bt1"></button>
                         <button type="button" id="bt2"></button>
                         <button type="button" id="bt3"></button>
                     </div>
-                    <div class="page" id="pg2">
-
-                        <button class="nxtpg">Next Page</button>
+                </div>
+                <div class="page" id="pg3">
+                    <h2>When are you planning to go?</h2>
+                    <div id="dates">
+                        <div class="dates2">
+                            <label for="start">Start Date</label>
+                            <input type="date" id="start"></input> 
+                        </div>
+                        <div class="dates2">
+                            <label for="start">Last Date</label>
+                            <input type="date" id="end"></input>
+                        </div>
                     </div>
+                    <p style="font-style: italic; color: black;">Give a rough estimate if you are not sure!</p>
+                    <button type="button" class="nxtpg">Next Page</button>
+                </div>
+                <div class="page" id="pg4">
+                    <h2>Who are travelling with?</h2>
+                    <label><input type="radio" name="Group" value="1" title="No-one">No-one</label>
+                    <label><input type="radio" name="Group" value="2" title="Family - Adult Only">Family - Adult Only</label>
+                    <label><input type="radio" name="Group" value="3" title="Family" >Family</label>
+                    <label><input type="radio" name="Group" value="4" title="Friends">Friends</label>
+                    <label><input type="radio" name="Group" value="5" title="Partner">Partner</label>
+                    <button type="button" class="nxtpg">Next Page</button>
                 </div>
             </div>
         </form>
     </body>
     <script src="planner.js"></script>
     <script src="progress.js"></script>
+    <script src="submit2.js"></script>
 </html> 
