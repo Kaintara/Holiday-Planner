@@ -14,7 +14,6 @@ startbtn.forEach(b => {
         if (SavedData) {
             const userData = JSON.parse(SavedData);
             console.log(userData);
-            console.log('User already did survey')
             const hide = document.getElementById("nodata")
             hide.style.display = 'none'
             bt1.textContent = userData['Choice1']
@@ -31,7 +30,6 @@ startbtn.forEach(b => {
                     el.checked = true
                 }})
         } else {
-            console.log('User has not done survey.')
             const hide2 = document.getElementById("data")
             hide2.style.display = 'none'
     }

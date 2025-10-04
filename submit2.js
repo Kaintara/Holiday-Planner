@@ -32,7 +32,7 @@ btn2.addEventListener('click', function(){
     load.style.flexDirection = 'column'
     load.style.alignItems = 'center'
     const NewText = document.getElementById('Change2')
-    NewText.textContent = "Below should be a draft plan for your holiday!"
+    NewText.textContent = ""
     const SavedData = sessionStorage.getItem("UserInput")
         if (SavedData) {
             const start = document.getElementById('start')
@@ -106,7 +106,7 @@ btn2.addEventListener('click', function(){
                 Must: must.value,
             }  
         }
-        fetch ('https://ai.hackclub.com/chat/completions', {
+       /* fetch ('https://ai.hackclub.com/chat/completions', {
             method: 'POST',
             headers: { "Content-Type": 'application/json'},
             body: JSON.stringify({"messages":[{"role": "user", "content": `
@@ -240,5 +240,10 @@ Do not include explanations, markdown, or extra formatting — JSON only.
         console.log(important)
         TopThree = JSON.parse(important)
         load.style.display= "none"
-
-    })})  
+        const T = document.getElementById('title')
+        T.textContent = "Draft Holiday Plan!"}) */
+        
+        })
+        load.style.display= "none"
+        const T = document.getElementById('title')
+        T.textContent = "Draft Holiday Plan!" 
