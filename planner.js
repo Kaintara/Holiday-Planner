@@ -24,8 +24,13 @@ startbtn.forEach(b => {
             radio.forEach(el => {
                 if (el.title === userData['Group']) {
                     el.checked = true
-        }
-    })} else {
+                }})
+            const radio2 = document.getElementsByName('Budget')
+            radio2.forEach(el => {
+                if (el.title === userData['Budget']) {
+                    el.checked = true
+                }})
+        } else {
             console.log('User has not done survey.')
             const hide2 = document.getElementById("data")
             hide2.style.display = 'none'

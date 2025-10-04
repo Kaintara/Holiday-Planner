@@ -10,10 +10,10 @@
         <main class="main" id="planner">
             <div class="overlay">
             <h1 id="title">Plan Your Ideal Holiday!</h1>
-            <p id="Change">Below are choices which will help determine your itinerary for your upcoming holiday!</p>
+            <p id="Change2">Below are choices which will help determine your itinerary for your upcoming holiday!</p>
             </div>
         </main>
-        <form class="Disappear">
+        <form class="Disappear" id="plan">
             <div class="Box">
                 <div class="progress-container">
                     <button type="button" disabled id="left-arrow"></button>
@@ -29,8 +29,8 @@
                 <div class="page" id="pg2">
                     <h2>Which Country and City are you visting?</h2>
                     <div id="nodata">
-                        <label><p>Country</p><input id="cont" type="text"></label>
-                        <label><p>City</p><input id ="city" type=text ></label>
+                        <label><p>Country</p><input id="cont2" type="text"></label>
+                        <label><p>City</p><input id ="city2" type=text ></label>
                         <button type="button" class="nxtpg">Next Page</button>
                     </div>
                     <div id="data">
@@ -63,8 +63,76 @@
                     <label><input type="radio" name="Group" value="5" title="Partner">Partner</label>
                     <button type="button" class="nxtpg">Next Page</button>
                 </div>
+                <div class="page" id="pg5">
+                    <h2 id="hd3">What is your estimated budget?</h2>
+                    <div class="dates2">
+                        <label><input type="radio" name="Budget" value="1" title="Less than 100">£</label>
+                        <label><input type="radio" name="Budget" value="2" title="Budget Friendly">££</label>
+                        <label><input type="radio" name="Budget" value="3" title="Average Costs">£££</label>
+                        <label><input type="radio" name="Budget" value="4" title="Above Average">££££</label>
+                        <label><input type="radio" name="Budget" value="5" title="No limit">£££££</label>
+                    </div>
+                    <button type="button" class="nxtpg">Next Page</button>
+                </div>
+                <div class="page" id="pg6">
+                    <h2>What type of Accommodation do you prefer?</h2>
+                    <div class="dates2">
+                        <label><input type="radio" name="Accom" value="1" title="Hotel">Hotel</label>
+                        <label><input type="radio" name="Accom" value="2" title="Hostel">Hostel</label>
+                        <label><input type="radio" name="Accom" value="3" title="Airbnbs">Airbnbs</label>
+                        <label><input type="radio" name="Accom" value="4" title="Boutique">Boutique Hotel</label>
+                    </div>
+                    <button type="button" class="nxtpg">Next Page</button>
+                </div>
+                <div class="page" id="pg7">
+                    <h2>Select any activities that appeal to you.</h2>
+                    <div class="dates2">
+                        <label><input type="checkbox" name="Activ" value="1" title="Sightseeing">Sightseeing</label>
+                        <label><input type="checkbox" name="Activ" value="2" title="Shopping">Shopping</label>
+                        <label><input type="checkbox" name="Activ" value="3" title="Entertainment & Nightlife">Entertainment & Nightlife</label>
+                        <label><input type="checkbox" name="Activ" value="4" title="Adventure & Sports">Adventure & Sports</label>
+                        <label><input type="checkbox" name="Activ" value="5" title="Food & Drink Experiences">Food & Drink Experiences</label>
+                        <label><input type="checkbox" name="Activ" value="6" title="Local Culture Exploration">Local Culture Exploration</label>
+                        <label><input type="checkbox" name="Activ" value="7" title="Leisure & Relaxation">Leisure & Relaxation</label>
+                    </div>
+                    <button type="button" class="nxtpg">Next Page</button>
+                </div>
+                <div class="page" id="pg8">
+                    <h2>Any Experiences you want to avoid?</h2>
+                    <textarea id="avoid" rows="5" cols="50" form="plan" placeholder="Write any special activities, preferences, or must-see places."></textarea>
+                    <button type="button" class="nxtpg">Next Page</button>
+                </div>
+                <div class="page" id="pg9">
+                    <h2>Any must have activites?</h2>
+                    <textarea id="must" rows="5" cols="50" form="plan" placeholder="Write any special activities, preferences, or must-see places."></textarea>
+                    <button type="button" class="nxtpg">Next Page</button>
+                </div>
+                <div class="page" id="pg10">
+                    <h2>Ready to submit?</h2>
+                    <button type="submit" id="finalbtn2">Generate Holiday Itinerary</button>
+                </div>   
             </div>
         </form>
+        <div class="Appear" class="overlay" id="open">
+            <div id="loading2">
+                <p>GENERATING.....</p>
+                <div id="loadingscreen"></div>
+            </div>
+            <h2 class="choice" id="Day1"></h2>
+            <p id="Reason1_1"></p>
+            <p id="Reason2_1"></p>
+            <p id="Reason3_1"></p>
+            <h2 class="choice" id="Choice2"></h2>
+            <p id="Reason1_2"></p>
+            <p id="Reason2_2"></p>
+            <p id="Reason3_2"></p>
+            <h2 class="choice" id="Choice3"></h2>
+            <p id="Reason1_3"></p>
+            <p id="Reason2_3"></p>
+            <p id="Reason3_3"></p>
+            <p id="belowtext"></p>
+            <button id="save">Click Me!</button>
+        </div>
     </body>
     <script src="planner.js"></script>
     <script src="progress.js"></script>

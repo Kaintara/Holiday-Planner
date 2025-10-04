@@ -109,6 +109,10 @@ input[type="date"] {
     font-family: 'Syne' ;
 }
 
+input[type="checkbox"] { 
+    background-color: #ffe4c4;
+}
+
 .text, #belowtext {
     font-family: 'Syne';
     color: #ffe4c4;
