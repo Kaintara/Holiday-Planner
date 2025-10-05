@@ -112,8 +112,7 @@ btn2.addEventListener('click', function(){
             body: JSON.stringify({"messages":[{"role": "user", "content": `
                 You are an AI travel planner. Using the following user data:
 
-Visting Country: ${userData.Country} or ${userData.CountryCity},
-Visting City: ${userData.City},
+Visting Country and City: (${userData.Country} and ${userData.}) and or ${userData.CountryCity},
 Starting_Date: ${userData.Starting_Date},
 Ending_Date: ${userData.Ending_Date},
 Group: ${userData.Group},
@@ -189,28 +188,24 @@ If no accommodation type is given, use a mix of 3-star hotels.
 JSON Structure Example (for format reference only, add more accommodations and dates if possible):
 {
 "accommodations": [
-{
-"name": "Hotel Sakura Shinjuku",
-"type": "3-star hotel",
-"price_range": "$$",
-"rating": 4.3,
-"location": "Shinjuku, Tokyo",
-"description": "Modern hotel close to train station with breakfast included."
-}
-],
+    {
+    "name": "Hotel Sakura Shinjuku",
+    "type": "3-star hotel",
+    "price_range": "$$",
+    "rating": 4.3,
+    "location": "Shinjuku, Tokyo",
+    "description": "Modern hotel close to train station with breakfast included."
+    }],
 "itinerary": [
 {
-"date": "2025-09-10",
-"activities": [
-{
-"name": "Arrival & Local Dinner",
-"location": "Shinjuku",
-"description": "Arrive in Tokyo, check into hotel, and enjoy a casual dinner nearby.",
-"notes": "Get early flight tickets to avoid rush hour periods in Tokyo.",
-},
-]
-}
-]
+    "date": "2025-09-10",
+    "activities": [
+    {
+        "name": "Arrival & Local Dinner",
+        "location": "Shinjuku",
+        "description": "Arrive in Tokyo, check into hotel, and enjoy a casual dinner nearby.",
+        "notes": "Get early flight tickets to avoid rush hour periods in Tokyo.",}]
+    }]
 }
 
 Additional Instructions:
@@ -223,7 +218,7 @@ VERY IMPORTANT!!! DO NOT SKIP ANY DATES - Generate AT LEAST one thing per day!!
 
 The output must be valid JSON that can be parsed directly into a JavaScript object.
 
-Do not include explanations, markdown, or extra formatting — JSON only.
+Do not include explanations, markdown, or extra formatting — JSON only. THIS IS KEY - give output as format given ONLY.
                 
                 `}]}),}).then(result => result.json())
     .then(eventsResponse =>{
@@ -250,7 +245,8 @@ Do not include explanations, markdown, or extra formatting — JSON only.
             Deshot.textContent = Plan["accommodations"][i]["description"]
         }
         const Itinerary = Plan["itinerary"]
-        const Contain = document.getElementById('dates2')
+        const Contain = document.getElementById('bigact')
+        console.log(Itinerary)
         Itinerary.forEach((day,index) => {
             var actbox = document.createElement('div')
             actbox.setAttribute("class","actbox")
@@ -258,8 +254,24 @@ Do not include explanations, markdown, or extra formatting — JSON only.
             var act = document.createElement('h2')
             act.setAttribute("class","act")
             const datee = day["date"]
-            act.textContent(`Day ${index + 1}: Hello (${datee})`)
+            const namee = day["activities"][0]["name"]
+            act.textContent = (`Day ${index + 1}: ${namee} (${datee})`)
             actbox.appendChild(act)
+            var smallact = document.createElement('h3')
+            smallact.setAttribute("class","smallact")
+            const loc = day["activities"][0]["location"]
+            smallact.textContent = (`Location: ${loc}`)
+            actbox.appendChild(smallact)
+            var evensmalleract1 = document.createElement('p')
+            evensmalleract1.setAttribute("class","evensmalleract")
+            const descript = day["activities"][0]["description"]
+            evensmalleract1.textContent = descript
+            actbox.appendChild(evensmalleract1)
+            var evensmalleract2 = document.createElement('p')
+            evensmalleract2.setAttribute("class","evensmalleract")
+            const descript2 = day["activities"][0]["notes"]
+            evensmalleract2.textContent = descript2
+            actbox.appendChild(evensmalleract2)
         })
     })
         })

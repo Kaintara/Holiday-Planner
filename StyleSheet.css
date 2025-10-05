@@ -291,7 +291,7 @@ form {
     flex-wrap: wrap;
 }
 
-#nodata, .dates2 {
+#nodata, .dates2, #bigact {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -309,10 +309,9 @@ form {
     aspect-ratio: 1/3;
     background-color: rgba(0,0,0,0.5);
     background-size: cover;
-    min-width: 100px;
     min-height: 300px;
-    width: 20vw;
-    height: 60vh;
+    width: clamp(200px, 20vw, 400px);
+    height: auto;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     align-self: center;
@@ -341,7 +340,7 @@ form {
     min-width: 300px;
     min-height: 50px;
     width: 90%;
-    height: 20vh;
+    height: auto;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     align-self: center;
@@ -374,4 +373,12 @@ form {
     font-size: 1.5rem;
     color: white;
     align-self: flex-start;
+    margin-left: 5%;
+}
+
+.hoteltext {
+    font-family: 'Syne';
+    font-size: 1.5rem;
+    color: white;
+    align-self: center;
 }
