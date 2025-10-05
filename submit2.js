@@ -34,6 +34,7 @@ btn2.addEventListener('click', function(){
     const NewText = document.getElementById('Change2')
     NewText.textContent = ""
     const SavedData = sessionStorage.getItem("UserInput")
+    const Savee = JSON.parse(SavedData)
         if (SavedData) {
             const start = document.getElementById('start')
             const end = document.getElementById('end')
@@ -51,28 +52,19 @@ btn2.addEventListener('click', function(){
                 }})
             const avoid = document.getElementById('avoid')
             const must = document.getElementById('must')
-            const CC = sessionStorage.getItem("CountryCity")
-            let Count = null, Cit = null;
-            if (CC) {
-                const parts = CC.split(/\s*[-,|]\s*/);
-                if (parts.length >= 2) {
-                    Country = parts[0].trim();
-                    City = parts[1].trim();
-                } else {
-                     City = CC.trim();
-                    }
-}
+            const CCraw = sessionStorage.getItem("CountryCity")
+            const CCC = JSON.parse(CCraw)
             userData = {
-                Country: Count,
-                City: Cit,
+                Country: CCC['Count1'],
+                City: CCC['Cit1'],
                 Starting_Date: start.value,
                 Ending_Date: end.value,
-                Group: SavedData['Group'],
-                Budget: SavedData['Budget'],
+                Group: Savee['Group'],
+                Budget: Savee['Budget'],
                 Accom: accom,
                 Activ: activ,
                 Avoid: avoid.value,
-                Must: [must.value,SavedData['AddNotes']]
+                Must: [must.value,Savee['AddNotes']]
             }
         } else {
             const country = document.getElementById('cont2')

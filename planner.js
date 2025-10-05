@@ -1,5 +1,17 @@
 var CountryCity = 'null'
 
+function spl(el) {
+    const parts = (el.textContent).split(/\s*[-,|]\s*/);
+    Count = parts[0].trim();
+    Cit = parts[1].trim();
+
+    const CC = {
+        Count1: Count,
+        Cit1: Cit
+    }
+    return CC
+}
+
 const btn = document.getElementById("btn1")
 const R = document.getElementById('right-arrow')
 const startbtn = [btn,R]
@@ -37,22 +49,24 @@ startbtn.forEach(b => {
 })
 
 bt1.addEventListener('click', function(){
-    sessionStorage.setItem("CountryCity",bt1.textContent);
+    sessionStorage.setItem("CountryCity",JSON.stringify(spl(bt1)));
     pgnum++
     ChangePage()
     Changeprog()
 })
 
 bt2.addEventListener('click', function(){
-    sessionStorage.setItem("CountryCity",bt2.textContent);
+    sessionStorage.setItem("CountryCity",JSON.stringify(spl(bt2)));
     pgnum++
     ChangePage()
     Changeprog()
 })
 
 bt3.addEventListener('click', function(){
-    sessionStorage.setItem("CountryCity",bt3.textContent);
+    sessionStorage.setItem("CountryCity",JSON.stringify(spl(bt3)));
     pgnum++
     ChangePage()
     Changeprog()
 })
+
+
