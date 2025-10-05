@@ -106,7 +106,7 @@ btn2.addEventListener('click', function(){
                 Must: must.value,
             }  
         }
-       /* fetch ('https://ai.hackclub.com/chat/completions', {
+        fetch ('https://ai.hackclub.com/chat/completions', {
             method: 'POST',
             headers: { "Content-Type": 'application/json'},
             body: JSON.stringify({"messages":[{"role": "user", "content": `
@@ -188,14 +188,6 @@ If no accommodation type is given, use a mix of 3-star hotels.
 
 JSON Structure Example (for format reference only, add more accommodations and dates if possible):
 {
-"destination": {
-"country": "Japan",
-"city": "Tokyo"
-},
-"travel_dates": {
-"start": "2025-09-10",
-"end": "2025-09-15"
-},
 "accommodations": [
 {
 "name": "Hotel Sakura Shinjuku",
@@ -214,20 +206,20 @@ JSON Structure Example (for format reference only, add more accommodations and d
 "name": "Arrival & Local Dinner",
 "location": "Shinjuku",
 "description": "Arrive in Tokyo, check into hotel, and enjoy a casual dinner nearby.",
-"notes": "Allow rest time after flight."
-}
+"notes": "Get early flight tickets to avoid rush hour periods in Tokyo.",
+},
 ]
 }
-],
-"special_notes": [
-"Avoid crowded nightlife areas.",
-"Must include a sushi-making class experience."
 ]
 }
 
 Additional Instructions:
 
 Ensure all text values are human-readable and descriptive (not placeholders).
+
+Be sure to write LONG detailed descriptions, the examples are too short, only for formatting purposes. This includes both the activities and hotel descriptions!
+
+VERY IMPORTANT!!! DO NOT SKIP ANY DATES - Generate AT LEAST one thing per day!!
 
 The output must be valid JSON that can be parsed directly into a JavaScript object.
 
@@ -238,28 +230,36 @@ Do not include explanations, markdown, or extra formatting — JSON only.
         const events = eventsResponse.choices[0].message.content
         const important = events.split('</think>')[1]?.trim()
         console.log(important)
-        Plan = JSON.parse(important)
-        load.style.display= "none"
-        const T = document.getElementById('title')
-        T.textContent = "Draft Holiday Plan!"}) */
+        const Plan = JSON.parse(important)
         load.style.display= "none"
         const T = document.getElementById('title')
         T.textContent = "Draft Holiday Plan!" 
 
         for (let i = 0; i < 3; i++) {
             const hot = document.getElementById(`hot${i+1}`)
-            hot.textContent(Plan["accommodations"][i]["name"])
+            hot.textContent = Plan["accommodations"][i]["name"]
             const Typehot = document.getElementById(`Typehot${i+1}`)
-            Typehot.textContent(`Type: ${Plan["accommodations"][i]["type"]}`)
+            Typehot.textContent = `Type: ${Plan["accommodations"][i]["type"]}`
             const Rathot = document.getElementById(`Rathot${i+1}`)
-            Rathot.textContent(`Rating: ${Plan["accommodations"][i]["rating"]}`)
+            Rathot.textContent= `Rating: ${Plan["accommodations"][i]["rating"]}`
             const Prihot = document.getElementById(`Prihot${i+1}`)
-            Prihot.textContent(`Price: ${Plan["accommodations"][i]["price_range"]}`)
+            Prihot.textContent = `Price: ${Plan["accommodations"][i]["price_range"]}`
             const Lothot = document.getElementById(`Lothot${i+1}`)
-            Lothot.textContent(`Location: ${Plan["accommodations"][i]["location"]}`)
+            Lothot.textContent = `Location: ${Plan["accommodations"][i]["location"]}`
             const Deshot = document.getElementById(`Deshot${i+1}`)
-            Deshot.textContent(Plan["accommodations"][i]["description"])
+            Deshot.textContent = Plan["accommodations"][i]["description"]
         }
-
-        
+        const Itinerary = Plan["itinerary"]
+        const Contain = document.getElementById('dates2')
+        Itinerary.forEach((day,index) => {
+            var actbox = document.createElement('div')
+            actbox.setAttribute("class","actbox")
+            Contain.appendChild(actbox)
+            var act = document.createElement('h2')
+            act.setAttribute("class","act")
+            const datee = day["date"]
+            act.textContent(`Day ${index + 1}: Hello (${datee})`)
+            actbox.appendChild(act)
+        })
+    })
         })

@@ -324,13 +324,14 @@ form {
 
 .info {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
 }
 
 .info2 {
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .actbox {
@@ -356,4 +357,21 @@ form {
     color: white;
     align-self: flex-start;
     margin-left: 5%;
+}
+
+.smallact {
+    font-family: 'Syne';
+    font-size: 2rem;
+    font-style: italic;
+    color: #ffe4c4;
+    align-self: flex-start;
+    margin-top: -2%;
+    margin-left: 5%;
+}
+
+.evensmalleract {
+    font-family: 'Syne';
+    font-size: 1.5rem;
+    color: white;
+    align-self: flex-start;
 }
