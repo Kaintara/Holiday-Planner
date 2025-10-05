@@ -277,8 +277,10 @@ ONCE YOU HAVE GENERATED AN OUTPUT - CHECK IT IS IN THE CORRECT FORMAT and is val
             var act = document.createElement('h2')
             act.setAttribute("class","act")
             const datee = day["date"]
+            const [year, month, dayy] = datee.split('-');
+            const formatted = `${dayy}/${month}`;
             const namee = day["activities"][0]["name"]
-            act.textContent = (`Day ${index + 1}: ${namee} (${datee})`)
+            act.textContent = (`Day ${index + 1}: ${namee} (${formatted})`)
             actbox.appendChild(act)
             var smallact = document.createElement('h3')
             smallact.setAttribute("class","smallact")
