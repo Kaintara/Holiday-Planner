@@ -52,8 +52,19 @@ btn2.addEventListener('click', function(){
             const avoid = document.getElementById('avoid')
             const must = document.getElementById('must')
             const CC = sessionStorage.getItem("CountryCity")
+            let Count = null, Cit = null;
+            if (CC) {
+                const parts = CC.split(/\s*[-,|]\s*/);
+                if (parts.length >= 2) {
+                    Country = parts[0].trim();
+                    City = parts[1].trim();
+                } else {
+                     City = CC.trim();
+                    }
+}
             userData = {
-                countrycity: CC,
+                Country: Count,
+                City: Cit,
                 Starting_Date: start.value,
                 Ending_Date: end.value,
                 Group: SavedData['Group'],
@@ -107,6 +118,7 @@ btn2.addEventListener('click', function(){
                 Must: must.value,
             }  
         }
+        console.log(userData)
         fetch ('https://ai.hackclub.com/chat/completions', {
             method: 'POST',
             headers: { "Content-Type": 'application/json'},
@@ -236,6 +248,8 @@ VERY IMPORTANT!!! DO NOT SKIP ANY DATES - Generate AT LEAST one thing per day!!
 The output must be valid JSON that can be parsed directly into a JavaScript object.
 
 Do not include explanations, markdown, or extra formatting — JSON only. THIS IS KEY - give output as format given ONLY.
+
+ONCE YOU HAVE GENERATED AN OUTPUT - CHECK IT IS IN THE CORRECT FORMAT and is valid for JSON.parse()
                 
                 `}]}),}).then(result => result.json())
     .then(eventsResponse =>{
@@ -287,7 +301,7 @@ Do not include explanations, markdown, or extra formatting — JSON only. THIS I
             var evensmalleract2 = document.createElement('p')
             evensmalleract2.setAttribute("class","evensmalleract")
             const descript2 = day["activities"][0]["notes"]
-            evensmalleract2.textContent = descript2
+            evensmalleract2.textContent = `Key Notes: ${descript2}`
             actbox.appendChild(evensmalleract2)
         })
     })

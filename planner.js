@@ -44,14 +44,14 @@ bt1.addEventListener('click', function(){
 })
 
 bt2.addEventListener('click', function(){
-    sessionStorage.setItem("CountryCity",bt1.textContent);
+    sessionStorage.setItem("CountryCity",bt2.textContent);
     pgnum++
     ChangePage()
     Changeprog()
 })
 
 bt3.addEventListener('click', function(){
-    sessionStorage.setItem("CountryCity",bt1.textContent);
+    sessionStorage.setItem("CountryCity",bt3.textContent);
     pgnum++
     ChangePage()
     Changeprog()
