@@ -37,21 +37,21 @@ startbtn.forEach(b => {
 })
 
 bt1.addEventListener('click', function(){
-    CountryCity = bt1.textContent
+    sessionStorage.setItem("CountryCity",bt1.textContent);
     pgnum++
     ChangePage()
     Changeprog()
 })
 
 bt2.addEventListener('click', function(){
-    CountryCity = bt2.textContent
+    sessionStorage.setItem("CountryCity",bt1.textContent);
     pgnum++
     ChangePage()
     Changeprog()
 })
 
 bt3.addEventListener('click', function(){
-    CountryCity = bt3.textContent
+    sessionStorage.setItem("CountryCity",bt1.textContent);
     pgnum++
     ChangePage()
     Changeprog()

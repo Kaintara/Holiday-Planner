@@ -51,8 +51,9 @@ btn2.addEventListener('click', function(){
                 }})
             const avoid = document.getElementById('avoid')
             const must = document.getElementById('must')
+            const CC = sessionStorage.getItem("CountryCity")
             userData = {
-                countrycity: CountryCity,
+                countrycity: CC,
                 Starting_Date: start.value,
                 Ending_Date: end.value,
                 Group: SavedData['Group'],
@@ -112,7 +113,7 @@ btn2.addEventListener('click', function(){
             body: JSON.stringify({"messages":[{"role": "user", "content": `
                 You are an AI travel planner. Using the following user data:
 
-Visting Country and City: (${userData.Country} and ${userData.}) and or ${userData.CountryCity},
+Visting Country and City: (${userData.Country} and ${userData.City}) and or ${userData.CountryCity},
 Starting_Date: ${userData.Starting_Date},
 Ending_Date: ${userData.Ending_Date},
 Group: ${userData.Group},
@@ -186,26 +187,42 @@ If no budget is given, assume a mid-range plan.
 If no accommodation type is given, use a mix of 3-star hotels.
 
 JSON Structure Example (for format reference only, add more accommodations and dates if possible):
+
 {
-"accommodations": [
+  "accommodations": [
     {
-    "name": "Hotel Sakura Shinjuku",
-    "type": "3-star hotel",
-    "price_range": "$$",
-    "rating": 4.3,
-    "location": "Shinjuku, Tokyo",
-    "description": "Modern hotel close to train station with breakfast included."
-    }],
-"itinerary": [
-{
-    "date": "2025-09-10",
-    "activities": [
+      "name": "Hotel Sakura Shinjuku",
+      "type": "3-star hotel",
+      "price_range": "$$",
+      "rating": 4.3,
+      "location": "Shinjuku, Tokyo",
+      "description": "Modern hotel close to train station with breakfast included."
+    }
+  ],
+  "itinerary": [
     {
-        "name": "Arrival & Local Dinner",
-        "location": "Shinjuku",
-        "description": "Arrive in Tokyo, check into hotel, and enjoy a casual dinner nearby.",
-        "notes": "Get early flight tickets to avoid rush hour periods in Tokyo.",}]
-    }]
+      "date": "2025-09-10",
+      "activities": [
+        {
+          "name": "Arrival & Local Dinner",
+          "location": "Shinjuku",
+          "description": "Arrive in Tokyo, check into hotel, and enjoy a casual dinner nearby.",
+          "notes": "Get early flight tickets to avoid rush hour periods in Tokyo."
+        }
+      ]
+    },
+    {
+      "date": "2025-09-11",
+      "activities": [
+        {
+          "name": "Tokyo City Tour",
+          "location": "Asakusa and Shibuya",
+          "description": "Explore Senso-ji Temple, enjoy street food in Asakusa, and visit the famous Shibuya Crossing.",
+          "notes": "Wear comfortable shoes and bring cash for local markets."
+        }
+      ]
+    }
+  ]
 }
 
 Additional Instructions:
