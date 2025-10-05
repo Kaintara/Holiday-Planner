@@ -238,12 +238,28 @@ Do not include explanations, markdown, or extra formatting — JSON only.
         const events = eventsResponse.choices[0].message.content
         const important = events.split('</think>')[1]?.trim()
         console.log(important)
-        TopThree = JSON.parse(important)
+        Plan = JSON.parse(important)
         load.style.display= "none"
         const T = document.getElementById('title')
         T.textContent = "Draft Holiday Plan!"}) */
-        
-        })
         load.style.display= "none"
         const T = document.getElementById('title')
         T.textContent = "Draft Holiday Plan!" 
+
+        for (let i = 0; i < 3; i++) {
+            const hot = document.getElementById(`hot${i+1}`)
+            hot.textContent(Plan["accommodations"][i]["name"])
+            const Typehot = document.getElementById(`Typehot${i+1}`)
+            Typehot.textContent(`Type: ${Plan["accommodations"][i]["type"]}`)
+            const Rathot = document.getElementById(`Rathot${i+1}`)
+            Rathot.textContent(`Rating: ${Plan["accommodations"][i]["rating"]}`)
+            const Prihot = document.getElementById(`Prihot${i+1}`)
+            Prihot.textContent(`Price: ${Plan["accommodations"][i]["price_range"]}`)
+            const Lothot = document.getElementById(`Lothot${i+1}`)
+            Lothot.textContent(`Location: ${Plan["accommodations"][i]["location"]}`)
+            const Deshot = document.getElementById(`Deshot${i+1}`)
+            Deshot.textContent(Plan["accommodations"][i]["description"])
+        }
+
+        
+        })
